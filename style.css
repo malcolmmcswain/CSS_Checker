@@ -1,0 +1,143 @@
+:root {
+    --header-bg-color: lch(19% 91 284);
+    --nav-bg-color: #5184c2;
+    --header-text-color: white;
+    --footer-bg-color: rgb(173, 173, 173);
+    --section-header-font-sz: 1.3rem;
+    --section-margin-side: 0;
+    --section-margin-top: 1dvh;
+    --about-section-header-bg-color: rgb(255,196,128);
+    --about-section-header-color: rgb(221,77,3);
+}
+
+@font-face {
+    font-family: verdana;
+    src: url(../font/verdana.ttf);
+}
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: verdana, sans-serif;
+}
+
+/* General page tag styles */
+h1 {
+    margin-left: 1.5dvw;
+    font-size: 2rem;
+    padding-top: 2dvh;
+    padding-bottom: 2dvh;
+}
+
+h2 {
+    font-size: var(--section-header-font-sz, 1.5rem);
+}
+
+p {
+    margin: 1.3dvh 0.5dvw;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Header styles */
+header {
+    background-color: var(--header-bg-color, blue);
+}
+
+header h1 {
+    color: var(--header-text-color, white);
+}
+
+nav {
+    background-color: var(--nav-bg-color, lightblue);
+    padding: 1dvh;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 0.5dvw;
+}
+
+nav a {
+    color: var(--header-text-color, white);
+}
+
+nav a:hover {
+    color: blue;
+}
+
+main {
+    padding: 1.4dvw;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#profile {
+    margin: var(--section-margin-top, 18px) var(--section-margin-side, 15px);
+}
+
+#profile h2 {
+    text-align: center;
+}
+
+#profile div {
+    display: block;
+    text-align: center;
+}
+
+#profile-pic {
+    width: 50%;
+    height: auto;
+}
+
+/* Contact styles */
+address {
+    font-style: normal;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+address a {
+    transition: all 0.5s ease;
+    margin: 1dvw;
+}
+
+address a:hover {
+    /* color: white; */
+    background-color: white;
+    filter: grayscale(1) invert(1);
+}
+
+.icon {
+    vertical-align: middle;
+}
+
+/* Page URL section styles */
+#url {
+    padding: 2px 4px;
+    border: 2px solid;
+    border-color: var(--nav-bg-color, lightblue);
+    margin-top: 3dvh;
+    margin-bottom: 3dvh;
+}
+
+#url p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Table styles */
+table {
+    border: 3px solid var(--nav-bg-color, lightblue);
+    border-collapse: collapse;
+    width: 
