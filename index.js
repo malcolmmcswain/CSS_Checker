@@ -43,24 +43,24 @@ async function analyzeCSSFiles(folderName) {
 
   console.log('\nCSS ANALYSIS:\n');
 
+  // Initialize flags
+  let flexOrGridFound = false;
+  let cssVariablesFound = false;
+  let fallbackFontsFound = false;
+  let relativeUnitsFound = false;
+  let dynamicViewportUnitsFound = false;
+  let animationsFound = false;
+  let transitionsFound = false;
+  let transformsFound = false;
+  let advancedColorFunctionsFound = false;
+  let pseudoClassesFound = false;
+  let mediaQueries = [];
+
   for (const filePath of cssFilePaths) {
     const content = await fs.readFile(filePath, "utf8");
     const lines = content.split(/\r?\n/);
 
-    console.log(`Analyzing ${filePath}:`);
-
-    // Initialize flags
-    let flexOrGridFound = false;
-    let cssVariablesFound = false;
-    let fallbackFontsFound = false;
-    let relativeUnitsFound = false;
-    let dynamicViewportUnitsFound = false;
-    let animationsFound = false;
-    let transitionsFound = false;
-    let transformsFound = false;
-    let advancedColorFunctionsFound = false;
-    let pseudoClassesFound = false;
-    let mediaQueries = [];
+    console.log(`Analyzing ${filePath}...`);
 
     // Check each line for the CSS properties
     lines.forEach((line) => {
@@ -118,22 +118,22 @@ async function analyzeCSSFiles(folderName) {
         mediaQueries.push(line.trim());
       }
     });
-
-    // Check for absence
-    if (!flexOrGridFound) console.log("✗ Flexbox or Grid not used.");
-    if (!cssVariablesFound) console.log("✗ CSS variables not used.");
-    if (!fallbackFontsFound) console.log("✗ Fallback fonts not used.");
-    if (!relativeUnitsFound) console.log("✗ Relative units not used.");
-    if (!dynamicViewportUnitsFound) console.log("✗ Dynamic viewport units not used.");
-    if (!animationsFound) console.log("✗ Animations not used.");
-    if (!transitionsFound) console.log("✗ Transitions not used.");
-    if (!transformsFound) console.log("✗ Transforms not used.");
-    if (!advancedColorFunctionsFound) console.log("✗ Advanced color functions not used.");
-    if (!pseudoClassesFound) console.log("✗ has(), is(), or where() pseudo-classes not used.");
-
-    console.log("\nMedia queries:");
-    mediaQueries.forEach((query, _) => { console.log(query); })
   }
+
+  // Check for absence
+  if (!flexOrGridFound) console.log("✗ Flexbox or Grid not used.");
+  if (!cssVariablesFound) console.log("✗ CSS variables not used.");
+  if (!fallbackFontsFound) console.log("✗ Fallback fonts not used.");
+  if (!relativeUnitsFound) console.log("✗ Relative units not used.");
+  if (!dynamicViewportUnitsFound) console.log("✗ Dynamic viewport units not used.");
+  if (!animationsFound) console.log("✗ Animations not used.");
+  if (!transitionsFound) console.log("✗ Transitions not used.");
+  if (!transformsFound) console.log("✗ Transforms not used.");
+  if (!advancedColorFunctionsFound) console.log("✗ Advanced color functions not used.");
+  if (!pseudoClassesFound) console.log("✗ has(), is(), or where() pseudo-classes not used.");
+
+  console.log("\nMedia queries:");
+  mediaQueries.forEach((query, _) => { console.log(query); })
 }
 
 async function analyzeHTMLFiles(folderName) {
@@ -148,7 +148,7 @@ async function analyzeHTMLFiles(folderName) {
     const content = await fs.readFile(filePath, "utf8");
     const lines = content.split(/\r?\n/);
 
-    console.log(`Analyzing ${filePath}:`);
+    console.log(`Analyzing ${filePath}...`);
 
     // Check each line for the HTML elements
     lines.forEach((line, index) => {
